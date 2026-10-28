@@ -100,7 +100,7 @@ export default function App() {
             <img
               src={profile.avatar}
               alt={profile.name}
-              className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-3 border-white shadow-md mx-auto"
+              className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover object-top border-3 border-white shadow-md mx-auto"
             />
           </div>
 

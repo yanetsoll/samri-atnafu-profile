@@ -5,7 +5,7 @@ export const getProfileData = () => {
     name: env.VITE_NAME || "Samrawit Atnafu",
     title: env.VITE_TITLE || "Chief Business Development Officer",
     bio: env.VITE_BIO || "",
-    avatar: env.VITE_AVATAR || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+    avatar: env.VITE_AVATAR || "/avatar.png",
     location: env.VITE_LOCATION || "",
     status: env.VITE_STATUS || "Online & open to collaborate",
     links: [
