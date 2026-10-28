@@ -42,7 +42,7 @@ export default function App() {
   };
 
   return (
-    <div className="h-[100dvh] max-h-[100dvh] bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9] to-[#E2E8F0] text-slate-900 flex flex-col justify-between overflow-hidden relative font-sans selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-[100dvh] sm:h-[100dvh] bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9] to-[#E2E8F0] text-slate-900 flex flex-col justify-between overflow-x-hidden relative font-sans selection:bg-indigo-500 selection:text-white">
       
       {/* Radiant Ambient Light Blooms */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
@@ -59,11 +59,11 @@ export default function App() {
         />
       </div>
 
-      {/* Main Single Screen Container */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 py-3 sm:py-5 flex-1 flex flex-col justify-between min-h-0">
+      {/* Main Container */}
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-6 flex-1 flex flex-col justify-between">
         
         {/* Top Minimal Action Row */}
-        <header className="flex items-center justify-between pb-1 flex-shrink-0">
+        <header className="flex items-center justify-between pb-2 flex-shrink-0">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 border border-slate-200/80 text-[11px] font-medium text-slate-600 shadow-xs backdrop-blur-md">
             <span className="flex h-2 w-2 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -94,7 +94,7 @@ export default function App() {
         </header>
 
         {/* Profile Card Header */}
-        <div className="text-center my-2 sm:my-3 flex-shrink-0">
+        <div className="text-center my-3 sm:my-4 flex-shrink-0">
           <div className="relative inline-block mb-2 sm:mb-2.5">
             <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-indigo-500 via-rose-400 to-amber-400 blur-xs opacity-80 animate-spin-slow" />
             <img
@@ -108,28 +108,30 @@ export default function App() {
             <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 font-display">
               {profile.name}
             </h1>
-            <span title="Verified Account" className="inline-flex items-center select-none">
+            <span title="Verified Account" className="inline-flex items-center select-none flex-shrink-0">
               <VerifiedBadgeIcon className="w-5 h-5 sm:w-5.5 sm:h-5.5 transition-transform duration-200 hover:scale-110 drop-shadow-xs" />
             </span>
           </div>
 
-          <p className="text-xs sm:text-sm font-semibold text-indigo-600 tracking-wide flex items-center justify-center gap-1 mt-0.5">
-            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-            {profile.title}
+          <p className="text-xs sm:text-sm font-semibold text-indigo-600 tracking-wide flex items-center justify-center gap-1 mt-1 px-4 leading-normal">
+            <Sparkles className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
+            <span>{profile.title}</span>
           </p>
 
-          <p className="max-w-md mx-auto text-xs text-slate-500 line-clamp-1 mt-1">
-            {profile.bio}
-          </p>
+          {profile.bio && (
+            <p className="max-w-md mx-auto text-xs text-slate-500 line-clamp-2 mt-1 px-4 leading-relaxed">
+              {profile.bio}
+            </p>
+          )}
 
-          <div className="inline-flex items-center gap-1.5 text-[11px] text-slate-500 mt-1 font-medium">
-            <MapPin className="w-3 h-3 text-slate-400" />
+          <div className="inline-flex items-center gap-1.5 text-[11px] text-slate-500 mt-1.5 font-medium">
+            <MapPin className="w-3 h-3 text-slate-400 flex-shrink-0" />
             <span>{profile.location}</span>
           </div>
         </div>
 
-        {/* The 4 Cards Grid - Clean, tight & centered without empty space */}
-        <div className="flex-1 min-h-0 flex flex-col justify-center my-2 sm:my-4">
+        {/* The 4 Cards Grid - Perfectly spaced without any overlap */}
+        <div className="my-auto py-2 sm:py-3 w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full">
             {profile.links.map((link) => (
               <SocialCard 
@@ -142,7 +144,7 @@ export default function App() {
         </div>
 
         {/* Compact Footer */}
-        <footer className="pt-2 border-t border-slate-200/70 flex-shrink-0 text-center text-[11px] text-slate-500">
+        <footer className="pt-3 pb-1 border-t border-slate-200/70 flex-shrink-0 text-center text-[11px] text-slate-500 mt-auto">
           <div className="flex items-center justify-between">
             <p>© {new Date().getFullYear()} {profile.name}</p>
             <p className="text-slate-400 font-medium">Click any card to open profile</p>

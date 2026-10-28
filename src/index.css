@@ -8,7 +8,7 @@
     -moz-osx-font-smoothing: grayscale;
     background-color: #F8FAFC;
     color: #0F172A;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 }
 
