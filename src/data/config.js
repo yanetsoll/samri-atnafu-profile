@@ -4,9 +4,9 @@ export const getProfileData = () => {
   return {
     name: env.VITE_NAME || "Samrawit Atnafu",
     title: env.VITE_TITLE || "Chief Business Development Officer",
-    bio: env.VITE_BIO || "Connecting ideas, creativity, and people. Welcome to my personal channels!",
+    bio: env.VITE_BIO || "",
     avatar: env.VITE_AVATAR || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
-    location: env.VITE_LOCATION || "Addis Ababa, Ethiopia",
+    location: env.VITE_LOCATION || "",
     status: env.VITE_STATUS || "Online & open to collaborate",
     links: [
       {
@@ -23,9 +23,9 @@ export const getProfileData = () => {
         id: "instagram",
         type: "instagram",
         title: "Instagram",
-        subtitle: env.VITE_INSTAGRAM_SUBTITLE || "Stories, Reels & Lifestyle",
-        handle: env.VITE_INSTAGRAM_HANDLE || "@samri_atnafu_",
-        url: env.VITE_INSTAGRAM_URL || "https://www.instagram.com/samri_atnafu_?xtok=and2Yng3eml5OGhv",
+        subtitle: env.VITE_INSTAGRAM_SUBTITLE,
+        handle: env.VITE_INSTAGRAM_HANDLE,
+        url: env.VITE_INSTAGRAM_URL,
         tag: "Social",
         badge: "Follow"
       },
@@ -33,9 +33,9 @@ export const getProfileData = () => {
         id: "whatsapp",
         type: "whatsapp",
         title: "WhatsApp",
-        subtitle: env.VITE_WHATSAPP_SUBTITLE || "Direct Message & Inquiries",
-        handle: env.VITE_WHATSAPP_HANDLE || "+251 911 515 291",
-        url: env.VITE_WHATSAPP_URL || "https://wa.me/251911515291?text=Hi%20Samri,%20I%20found%20your%20profile%20and%20would%20like%20to%20connect!",
+        subtitle: env.VITE_WHATSAPP_SUBTITLE,
+        handle: env.VITE_WHATSAPP_HANDLE,
+        url: env.VITE_WHATSAPP_URL,
         tag: "Instant Chat",
         badge: "Message"
       },
@@ -43,9 +43,9 @@ export const getProfileData = () => {
         id: "website",
         type: "website",
         title: "Personal Website",
-        subtitle: env.VITE_WEBSITE_SUBTITLE || "Portfolio, Blog & Showcase",
-        handle: env.VITE_WEBSITE_HANDLE || "samriatnafu.com",
-        url: env.VITE_WEBSITE_URL || "https://samriatnafu.com",
+        subtitle: env.VITE_WEBSITE_SUBTITLE,
+        handle: env.VITE_WEBSITE_HANDLE,
+        url: env.VITE_WEBSITE_URL,
         tag: "Portfolio",
         badge: "Explore"
       }

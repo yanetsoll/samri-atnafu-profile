@@ -128,9 +128,9 @@ export default function App() {
           </div>
         </div>
 
-        {/* The 4 Cards Grid - Fills remaining vertical space */}
-        <div className="flex-1 min-h-0 flex flex-col justify-center my-1 sm:my-2">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-4 h-full max-h-[420px]">
+        {/* The 4 Cards Grid - Clean, tight & centered without empty space */}
+        <div className="flex-1 min-h-0 flex flex-col justify-center my-2 sm:my-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full">
             {profile.links.map((link) => (
               <SocialCard 
                 key={link.id} 
