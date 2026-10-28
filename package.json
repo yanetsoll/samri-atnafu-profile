@@ -1,0 +1,29 @@
+{
+  "name": "samrawit-atnafu-socials",
+  "version": "1.0.0",
+  "description": "Luxurious, elegant personal social media landing page for Samrawit Atnafu with dynamic print-ready QR code generation.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "lucide-react": "^1.63.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwindcss": "^4.0.0",
+    "vite": "^8.3.5"
+  },
+  "keywords": [
+    "landing-page",
+    "luxury",
+    "social-media",
+    "qr-code"
+  ],
+  "author": "Yanet",
+  "license": "MIT"
+}
