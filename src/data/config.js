@@ -3,7 +3,7 @@ export const getProfileData = () => {
 
   return {
     name: env.VITE_NAME || "Samrawit Atnafu",
-    title: env.VITE_TITLE || "Digital Creator & Entrepreneur",
+    title: env.VITE_TITLE || "Chief Business Development Officer",
     bio: env.VITE_BIO || "Connecting ideas, creativity, and people. Welcome to my personal channels!",
     avatar: env.VITE_AVATAR || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
     location: env.VITE_LOCATION || "Addis Ababa, Ethiopia",

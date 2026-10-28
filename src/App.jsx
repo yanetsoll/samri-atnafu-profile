@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { getProfileData } from './data/config';
 import { SocialCard } from './components/SocialCard';
 import { QRModal } from './components/QRModal';
+import { VerifiedBadgeIcon } from './components/Icons';
 import { 
   Share2, 
   QrCode, 
@@ -107,7 +108,9 @@ export default function App() {
             <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 font-display">
               {profile.name}
             </h1>
-            <CheckCircle2 className="w-5 h-5 text-indigo-600 fill-indigo-100" title="Verified Profile" />
+            <span title="Verified Account" className="inline-flex items-center select-none">
+              <VerifiedBadgeIcon className="w-5 h-5 sm:w-5.5 sm:h-5.5 transition-transform duration-200 hover:scale-110 drop-shadow-xs" />
+            </span>
           </div>
 
           <p className="text-xs sm:text-sm font-semibold text-indigo-600 tracking-wide flex items-center justify-center gap-1 mt-0.5">
