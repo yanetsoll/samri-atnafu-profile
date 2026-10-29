@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { getProfileData } from './data/config';
 import { SocialCard } from './components/SocialCard';
 import { QRModal } from './components/QRModal';
-import { VerifiedBadgeIcon } from './components/Icons';
 import { 
   Share2, 
   QrCode, 
@@ -73,14 +72,14 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-2">
-            <button
+            {/* <button
               onClick={() => setIsQrOpen(true)}
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/85 hover:bg-white text-slate-700 hover:text-slate-900 border border-slate-200/90 shadow-xs backdrop-blur-md transition-all hover:scale-105"
               title="Show QR Code"
             >
               <QrCode className="w-3.5 h-3.5 text-indigo-600" />
               <span>QR Code</span>
-            </button>
+            </button> */}
 
             <button
               onClick={handleShare}
@@ -104,13 +103,10 @@ export default function App() {
             />
           </div>
 
-          <div className="flex items-center justify-center gap-1.5">
+          <div className="flex items-center justify-center">
             <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 font-display">
               {profile.name}
             </h1>
-            <span title="Verified Account" className="inline-flex items-center select-none flex-shrink-0">
-              <VerifiedBadgeIcon className="w-5 h-5 sm:w-5.5 sm:h-5.5 transition-transform duration-200 hover:scale-110 drop-shadow-xs" />
-            </span>
           </div>
 
           <p className="text-xs sm:text-sm font-semibold text-indigo-600 tracking-wide flex items-center justify-center gap-1 mt-1 px-4 leading-normal">
