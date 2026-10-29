@@ -51,34 +51,30 @@ export default function App() {
         <img 
           src={profile.avatar} 
           alt={profile.name}
-          className="w-full h-full object-cover object-top filter brightness-[1.02] contrast-[1.02]"
+          className="w-full h-full object-cover object-top"
         />
         
-        {/* Seamless horizontal feather gradient fading into the links panel */}
+        {/* Minimal edge fade into the links panel */}
         <div 
-          className="absolute inset-y-0 right-0 w-32 lg:w-56 pointer-events-none"
+          className="absolute inset-y-0 right-0 w-16 lg:w-28 pointer-events-none"
           style={{
-            background: 'linear-gradient(to right, rgba(248, 250, 252, 0) 0%, rgba(248, 250, 252, 0.4) 35%, rgba(248, 250, 252, 0.85) 75%, #F8FAFC 100%)'
+            background: 'linear-gradient(to right, rgba(248, 250, 252, 0) 0%, rgba(248, 250, 252, 0.6) 60%, #F8FAFC 100%)'
           }}
         />
-
-        {/* Soft top & bottom edge softening */}
-        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#F8FAFC]/40 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#F8FAFC]/60 to-transparent pointer-events-none" />
       </div>
 
-      {/* Mobile: Top Photo Banner with Soft Downward Fade */}
-      <div className="relative md:hidden w-full h-72 sm:h-80 overflow-hidden flex-shrink-0">
+      {/* Mobile: Top Photo Banner with Minimal Bottom Edge Fade */}
+      <div className="relative md:hidden w-full h-80 sm:h-96 overflow-hidden flex-shrink-0">
         <img 
           src={profile.avatar} 
           alt={profile.name}
           className="w-full h-full object-cover object-top"
         />
-        {/* Soft seamless vertical gradient fading directly into the content */}
+        {/* Only fade the very bottom edge so her photo is completely clear and visible */}
         <div 
-          className="absolute inset-0 pointer-events-none"
+          className="absolute inset-x-0 bottom-0 h-14 pointer-events-none"
           style={{
-            background: 'linear-gradient(to bottom, rgba(248, 250, 252, 0) 30%, rgba(248, 250, 252, 0.5) 60%, rgba(248, 250, 252, 0.95) 90%, #F8FAFC 100%)'
+            background: 'linear-gradient(to bottom, rgba(248, 250, 252, 0) 0%, rgba(248, 250, 252, 0.6) 50%, #F8FAFC 100%)'
           }}
         />
       </div>
