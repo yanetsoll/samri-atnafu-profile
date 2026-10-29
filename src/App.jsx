@@ -46,35 +46,28 @@ export default function App() {
       {/* SIDE 1: Portrait Image Section with Seamless Soft Blend */}
       {/* ======================================================== */}
       
-      {/* Desktop & Tablet: Left Half Photo */}
-      <div className="relative hidden md:block md:w-5/12 lg:w-1/2 h-[100dvh] sticky top-0 overflow-hidden flex-shrink-0">
+      {/* Desktop & Tablet: Left Half Photo with True Alpha Mask (Zero Boundary Line) */}
+      <div className="relative hidden md:block md:w-5/12 lg:w-1/2 h-[100dvh] sticky top-0 overflow-hidden flex-shrink-0 bg-[#F8FAFC]">
         <img 
           src={profile.avatar} 
           alt={profile.name}
           className="w-full h-full object-cover object-top"
-        />
-        
-        {/* Minimal edge fade into the links panel */}
-        <div 
-          className="absolute inset-y-0 right-0 w-16 lg:w-28 pointer-events-none"
           style={{
-            background: 'linear-gradient(to right, rgba(248, 250, 252, 0) 0%, rgba(248, 250, 252, 0.6) 60%, #F8FAFC 100%)'
+            WebkitMaskImage: 'linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 65%, rgba(0, 0, 0, 0.4) 85%, rgba(0, 0, 0, 0) 100%)',
+            maskImage: 'linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 65%, rgba(0, 0, 0, 0.4) 85%, rgba(0, 0, 0, 0) 100%)'
           }}
         />
       </div>
 
-      {/* Mobile: Top Photo Banner with Minimal Bottom Edge Fade */}
-      <div className="relative md:hidden w-full h-80 sm:h-96 overflow-hidden flex-shrink-0">
+      {/* Mobile: Top Photo Banner with True Alpha Mask (Zero Boundary Line) */}
+      <div className="relative md:hidden w-full h-80 sm:h-96 overflow-hidden flex-shrink-0 bg-[#F8FAFC]">
         <img 
           src={profile.avatar} 
           alt={profile.name}
           className="w-full h-full object-cover object-top"
-        />
-        {/* Only fade the very bottom edge so her photo is completely clear and visible */}
-        <div 
-          className="absolute inset-x-0 bottom-0 h-14 pointer-events-none"
           style={{
-            background: 'linear-gradient(to bottom, rgba(248, 250, 252, 0) 0%, rgba(248, 250, 252, 0.6) 50%, #F8FAFC 100%)'
+            WebkitMaskImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 62%, rgba(0, 0, 0, 0.35) 84%, rgba(0, 0, 0, 0) 100%)',
+            maskImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 62%, rgba(0, 0, 0, 0.35) 84%, rgba(0, 0, 0, 0) 100%)'
           }}
         />
       </div>
