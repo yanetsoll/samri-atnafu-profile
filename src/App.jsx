@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { getProfileData } from './data/config';
 import { SocialCard } from './components/SocialCard';
 import { QRModal } from './components/QRModal';
+import { VerifiedBadgeIcon } from './components/Icons';
 import { 
   Share2, 
   QrCode, 
-  MapPin, 
   CheckCircle2, 
   Sparkles
 } from 'lucide-react';
@@ -103,10 +103,13 @@ export default function App() {
             />
           </div>
 
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center gap-1.5">
             <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 font-display">
               {profile.name}
             </h1>
+            <span title="Verified Account" className="inline-flex items-center select-none flex-shrink-0">
+              <VerifiedBadgeIcon className="w-5 h-5 sm:w-5.5 sm:h-5.5 transition-transform duration-200 hover:scale-110 drop-shadow-xs" />
+            </span>
           </div>
 
           <p className="text-xs sm:text-sm font-semibold text-indigo-600 tracking-wide flex items-center justify-center gap-1 mt-1 px-4 leading-normal">
@@ -119,11 +122,6 @@ export default function App() {
               {profile.bio}
             </p>
           )}
-
-          <div className="inline-flex items-center gap-1.5 text-[11px] text-slate-500 mt-1.5 font-medium">
-            <MapPin className="w-3 h-3 text-slate-400 flex-shrink-0" />
-            <span>{profile.location}</span>
-          </div>
         </div>
 
         {/* The 4 Cards Grid - Perfectly spaced without any overlap */}
