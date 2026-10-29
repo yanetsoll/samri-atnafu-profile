@@ -40,29 +40,61 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-[100dvh] sm:h-[100dvh] text-slate-900 flex flex-col justify-between overflow-x-hidden relative font-sans selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-[100dvh] bg-[#F8FAFC] text-slate-900 flex flex-col md:flex-row overflow-x-hidden relative font-sans selection:bg-indigo-500 selection:text-white">
       
-      {/* Full Portrait Photo Background with Editorial Glass Veil */}
-      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+      {/* ======================================================== */}
+      {/* SIDE 1: Portrait Image Section with Seamless Soft Blend */}
+      {/* ======================================================== */}
+      
+      {/* Desktop & Tablet: Left Half Photo */}
+      <div className="relative hidden md:block md:w-5/12 lg:w-1/2 h-[100dvh] sticky top-0 overflow-hidden flex-shrink-0">
         <img 
           src={profile.avatar} 
           alt={profile.name}
-          className="w-full h-full object-cover object-top filter brightness-[1.03] contrast-[1.02]"
+          className="w-full h-full object-cover object-top filter brightness-[1.02] contrast-[1.02]"
         />
-        {/* Soft pearlescent gradient veil for crisp text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-white/80 to-[#F8FAFC]/98 backdrop-blur-[2.5px]" />
         
-        {/* Delicate ambient warm accents */}
-        <div className="absolute -top-24 -left-24 w-80 h-80 bg-indigo-300/25 rounded-full blur-[90px]" />
-        <div className="absolute top-1/3 -right-20 w-80 h-80 bg-rose-300/20 rounded-full blur-[100px]" />
+        {/* Seamless horizontal feather gradient fading into the links panel */}
+        <div 
+          className="absolute inset-y-0 right-0 w-32 lg:w-56 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to right, rgba(248, 250, 252, 0) 0%, rgba(248, 250, 252, 0.4) 35%, rgba(248, 250, 252, 0.85) 75%, #F8FAFC 100%)'
+          }}
+        />
+
+        {/* Soft top & bottom edge softening */}
+        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#F8FAFC]/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#F8FAFC]/60 to-transparent pointer-events-none" />
       </div>
 
-      {/* Main Container */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-6 flex-1 flex flex-col justify-between">
+      {/* Mobile: Top Photo Banner with Soft Downward Fade */}
+      <div className="relative md:hidden w-full h-72 sm:h-80 overflow-hidden flex-shrink-0">
+        <img 
+          src={profile.avatar} 
+          alt={profile.name}
+          className="w-full h-full object-cover object-top"
+        />
+        {/* Soft seamless vertical gradient fading directly into the content */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(248, 250, 252, 0) 30%, rgba(248, 250, 252, 0.5) 60%, rgba(248, 250, 252, 0.95) 90%, #F8FAFC 100%)'
+          }}
+        />
+      </div>
+
+      {/* ======================================================== */}
+      {/* SIDE 2: Social Links & Profile Content Section           */}
+      {/* ======================================================== */}
+      <div className="flex-1 w-full md:w-7/12 lg:w-1/2 min-h-[100dvh] flex flex-col justify-between p-5 sm:p-8 lg:p-12 relative z-10">
         
-        {/* Top Minimal Action Row */}
-        <header className="flex items-center justify-between pb-2 flex-shrink-0">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/85 border border-white/80 text-[11px] font-medium text-slate-700 shadow-xs backdrop-blur-md">
+        {/* Subtle Ambient Glow Behind Cards */}
+        <div className="absolute top-1/4 -right-16 w-72 h-72 bg-indigo-200/30 rounded-full blur-[90px] pointer-events-none -z-10" />
+        <div className="absolute bottom-1/4 left-10 w-64 h-64 bg-rose-200/20 rounded-full blur-[90px] pointer-events-none -z-10" />
+
+        {/* Top Action Bar */}
+        <header className="flex items-center justify-between pb-4 flex-shrink-0">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 border border-slate-200/80 text-[11px] font-medium text-slate-700 shadow-xs backdrop-blur-md">
             <span className="flex h-2 w-2 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -72,7 +104,7 @@ export default function App() {
 
           <button
             onClick={handleShare}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs backdrop-blur-md transition-all hover:scale-105"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs backdrop-blur-md transition-all hover:scale-105 active:scale-95"
             title="Share profile"
           >
             <Share2 className="w-3.5 h-3.5" />
@@ -80,32 +112,32 @@ export default function App() {
           </button>
         </header>
 
-        {/* Profile Header (without redundant circle avatar) */}
-        <div className="text-center my-4 sm:my-6 flex-shrink-0">
-          <div className="flex items-center justify-center gap-1.5">
-            <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 font-display drop-shadow-xs">
-              {profile.name}
-            </h1>
-            <span title="Verified Account" className="inline-flex items-center select-none flex-shrink-0">
-              <VerifiedBadgeIcon className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-200 hover:scale-110 drop-shadow-xs" />
-            </span>
+        {/* Profile Info Header */}
+        <div className="my-auto py-3 sm:py-6">
+          <div className="mb-6 sm:mb-8 text-left">
+            <div className="inline-flex items-center gap-2 mb-1.5">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-slate-900 font-display">
+                {profile.name}
+              </h1>
+              <span title="Verified Account" className="inline-flex items-center select-none flex-shrink-0">
+                <VerifiedBadgeIcon className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-200 hover:scale-110 drop-shadow-xs" />
+              </span>
+            </div>
+
+            <p className="text-xs sm:text-sm font-semibold text-indigo-700 tracking-wide flex items-center gap-1.5">
+              <Sparkles className="w-4 h-4 text-amber-500 flex-shrink-0" />
+              <span>{profile.title}</span>
+            </p>
+
+            {profile.bio && (
+              <p className="max-w-md text-xs sm:text-sm text-slate-500 line-clamp-2 mt-2 leading-relaxed">
+                {profile.bio}
+              </p>
+            )}
           </div>
 
-          <p className="text-xs sm:text-sm font-semibold text-indigo-700 tracking-wide flex items-center justify-center gap-1 mt-1 px-4 leading-normal">
-            <Sparkles className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
-            <span>{profile.title}</span>
-          </p>
-
-          {profile.bio && (
-            <p className="max-w-md mx-auto text-xs text-slate-600 line-clamp-2 mt-1 px-4 leading-relaxed font-medium">
-              {profile.bio}
-            </p>
-          )}
-        </div>
-
-        {/* The 4 Cards Grid - Frosted glass tiles floating gracefully */}
-        <div className="my-auto py-2 sm:py-3 w-full">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full">
+          {/* Four Social Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5 w-full">
             {profile.links.map((link) => (
               <SocialCard 
                 key={link.id} 
@@ -117,10 +149,10 @@ export default function App() {
         </div>
 
         {/* Compact Footer */}
-        <footer className="pt-3 pb-1 border-t border-slate-200/70 flex-shrink-0 text-center text-[11px] text-slate-600 mt-auto">
+        <footer className="pt-4 border-t border-slate-200/70 flex-shrink-0 text-[11px] text-slate-500 mt-auto">
           <div className="flex items-center justify-between">
             <p>© {new Date().getFullYear()} {profile.name}</p>
-            <p className="text-slate-500 font-medium">Click any card to open profile</p>
+            <p className="text-slate-400 font-medium">Click any card to open profile</p>
           </div>
         </footer>
 
