@@ -1,21 +1,30 @@
+const cleanEnv = (val, fallback = "") => {
+  if (val === undefined || val === null) return fallback;
+  const str = String(val).trim();
+  if (!str) return fallback;
+  // Automatically strip leading and trailing quotes (", ', “”, ‘’, etc.)
+  const cleaned = str.replace(/^["'“”‘’\s]+|["'“”‘’\s]+$/g, '').trim();
+  return cleaned || fallback;
+};
+
 export const getProfileData = () => {
   const env = import.meta.env;
 
   return {
-    name: env.VITE_NAME || "Samrawit Atnafu",
-    title: env.VITE_TITLE || "Chief Business Development Officer",
-    bio: env.VITE_BIO || "",
-    avatar: env.VITE_AVATAR || "/avatar.png",
-    location: env.VITE_LOCATION || "",
-    status: env.VITE_STATUS || "Online & open to collaborate",
+    name: cleanEnv(env.VITE_NAME, "Samrawit Atnafu"),
+    title: cleanEnv(env.VITE_TITLE, "Chief Business Development Officer"),
+    bio: cleanEnv(env.VITE_BIO, ""),
+    avatar: cleanEnv(env.VITE_AVATAR, "/avatar.png"),
+    location: cleanEnv(env.VITE_LOCATION, ""),
+    status: cleanEnv(env.VITE_STATUS, "Online & open to collaborate"),
     links: [
       {
         id: "linkedin",
         type: "linkedin",
         title: "LinkedIn",
-        subtitle: env.VITE_LINKEDIN_SUBTITLE || "Professional Network & Experience",
-        handle: env.VITE_LINKEDIN_HANDLE || "@samri-atnafu",
-        url: env.VITE_LINKEDIN_URL || "https://www.linkedin.com/in/samri-atnafu",
+        subtitle: cleanEnv(env.VITE_LINKEDIN_SUBTITLE, "Professional Network & Experience"),
+        handle: cleanEnv(env.VITE_LINKEDIN_HANDLE, "@samri-atnafu"),
+        url: cleanEnv(env.VITE_LINKEDIN_URL, "https://www.linkedin.com/in/samri-atnafu"),
         tag: "Career",
         badge: "Connect"
       },
@@ -23,9 +32,9 @@ export const getProfileData = () => {
         id: "instagram",
         type: "instagram",
         title: "Instagram",
-        subtitle: env.VITE_INSTAGRAM_SUBTITLE,
-        handle: env.VITE_INSTAGRAM_HANDLE,
-        url: env.VITE_INSTAGRAM_URL,
+        subtitle: cleanEnv(env.VITE_INSTAGRAM_SUBTITLE, ""),
+        handle: cleanEnv(env.VITE_INSTAGRAM_HANDLE, "@samri_atnafu_"),
+        url: cleanEnv(env.VITE_INSTAGRAM_URL, "https://www.instagram.com/samri_atnafu_?xtok=and2Yng3eml5OGhv"),
         tag: "Social",
         badge: "Follow"
       },
@@ -33,9 +42,9 @@ export const getProfileData = () => {
         id: "whatsapp",
         type: "whatsapp",
         title: "WhatsApp",
-        subtitle: env.VITE_WHATSAPP_SUBTITLE,
-        handle: env.VITE_WHATSAPP_HANDLE,
-        url: env.VITE_WHATSAPP_URL,
+        subtitle: cleanEnv(env.VITE_WHATSAPP_SUBTITLE, ""),
+        handle: cleanEnv(env.VITE_WHATSAPP_HANDLE, "+251 911 515 291"),
+        url: cleanEnv(env.VITE_WHATSAPP_URL, "https://wa.me/251911515291"),
         tag: "Instant Chat",
         badge: "Message"
       },
@@ -43,9 +52,9 @@ export const getProfileData = () => {
         id: "website",
         type: "website",
         title: "Personal Website",
-        subtitle: env.VITE_WEBSITE_SUBTITLE,
-        handle: env.VITE_WEBSITE_HANDLE,
-        url: env.VITE_WEBSITE_URL,
+        subtitle: cleanEnv(env.VITE_WEBSITE_SUBTITLE, ""),
+        handle: cleanEnv(env.VITE_WEBSITE_HANDLE, "tewostech.com"),
+        url: cleanEnv(env.VITE_WEBSITE_URL, "https://tewostech.com/"),
         tag: "Portfolio",
         badge: "Explore"
       }
