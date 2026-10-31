@@ -16,10 +16,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-[100dvh] bg-[#F1F5F9] text-slate-900 flex flex-col justify-center items-center p-0 sm:p-6 font-sans selection:bg-rose-500 selection:text-white">
+    <div className="min-h-[100dvh] bg-white text-slate-900 flex flex-col items-center font-sans selection:bg-rose-500 selection:text-white">
       
       {/* Central Profile Card */}
-      <main className="w-full max-w-[440px] bg-white sm:rounded-3xl shadow-[0_15px_40px_rgba(0,0,0,0.08)] sm:border border-slate-100/90 overflow-hidden flex flex-col transition-all">
+      <main className="w-full max-w-[480px] bg-white flex flex-col min-h-[100dvh]">
         
         {/* 1. Header Banner */}
         <div className="relative w-full h-36 sm:h-40 bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-600 overflow-hidden">
