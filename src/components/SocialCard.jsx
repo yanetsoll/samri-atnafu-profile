@@ -45,22 +45,7 @@ export const SocialCard = ({ link, onCopy }) => {
         </span>
       </div>
 
-      {/* Copy Button — stops propagation so it doesn't also navigate */}
-      <button
-        onClick={handleCopy}
-        type="button"
-        className="text-slate-400 hover:text-slate-700 font-medium text-xs sm:text-sm px-2.5 py-1 rounded transition-colors flex items-center gap-1 flex-shrink-0"
-        title={`Copy ${link.handle}`}
-      >
-        {copied ? (
-          <span className="text-emerald-600 font-semibold flex items-center gap-1">
-            <Check className="w-3.5 h-3.5" />
-            Copied
-          </span>
-        ) : (
-          "Copy"
-        )}
-      </button>
+
     </a>
   );
 };
