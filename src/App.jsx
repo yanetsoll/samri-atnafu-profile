@@ -9,7 +9,7 @@ export default function App() {
   return (
     <div className="min-h-[100dvh] bg-white text-slate-900 font-sans">
 
-      {/* ── BANNER (full width on all screens) ── */}
+      {/* ── BANNER (full width) ── */}
       <div className="relative w-full h-48 md:h-72 lg:h-80 bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-600 overflow-hidden">
         <img
           src={profile.banner || "/banner.png"}
@@ -19,11 +19,11 @@ export default function App() {
       </div>
 
       {/* ── CONTENT AREA ── */}
-      <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-16">
+      <div className="w-full max-w-5xl mx-auto px-6 md:px-10">
 
-        {/* Avatar — shown on mobile only, banner already has logo on desktop */}
-        <div className="-mt-14 md:-mt-16 mb-4 inline-block relative z-10 md:hidden">
-          <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white shadow-lg bg-gradient-to-br from-orange-500 to-fuchsia-600 overflow-hidden">
+        {/* Avatar overlapping banner */}
+        <div className="-mt-12 md:-mt-14 mb-3 inline-block relative z-10">
+          <div className="w-24 h-24 md:w-28 md:h-28 rounded-full border-4 border-white shadow-lg bg-gradient-to-br from-orange-500 to-fuchsia-600 overflow-hidden">
             <img
               src={profile.avatar || "/logo.png"}
               alt={profile.name}
@@ -33,7 +33,7 @@ export default function App() {
         </div>
 
         {/* Name + Subtitle */}
-        <div className="mt-2 mb-6 md:mb-8">
+        <div className="mt-1 mb-6 md:mb-10">
           <div className="flex items-center gap-2">
             <h1 className="text-2xl md:text-4xl font-bold text-slate-950 tracking-tight">
               {profile.name}
@@ -41,15 +41,15 @@ export default function App() {
             <VerifiedBadgeIcon className="w-5 h-5 md:w-7 md:h-7 flex-shrink-0" />
           </div>
           {profile.title && (
-            <p className="text-sm md:text-lg text-slate-500 mt-1">
+            <p className="text-sm md:text-xl text-slate-500 mt-1">
               {profile.title}
             </p>
           )}
         </div>
 
         {/* ── LINKS ── */}
-        {/* Mobile: single column | Desktop: grid 3 columns */}
-        <div className="divide-y divide-slate-100 md:divide-y-0 md:grid md:grid-cols-3 md:gap-5 pb-12">
+        {/* Mobile: divider rows | Desktop: 3-column card grid */}
+        <div className="divide-y divide-slate-100 md:divide-y-0 md:grid md:grid-cols-3 md:gap-6 pb-12">
           {profile.links.map((link) => (
             <SocialCard key={link.id} link={link} />
           ))}
