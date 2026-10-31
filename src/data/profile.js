@@ -41,7 +41,7 @@ export const profileData = {
     },
     {
       id: "website",
-      title: "Personal Website",
+      title: "Tewos Website",
       subtitle: "Portfolio, Blog & Showcase",
       handle: "samriye.dev",
       url: "https://samriye.dev",

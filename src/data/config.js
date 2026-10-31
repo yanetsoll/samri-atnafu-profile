@@ -21,7 +21,7 @@ export const getProfileData = () => {
       {
         id: "website",
         type: "website",
-        title: "Personal Website",
+        title: cleanEnv(env.VITE_WEBSITE_TITLE, "Tewos Website"),
         subtitle: cleanEnv(env.VITE_WEBSITE_SUBTITLE, ""),
         handle: cleanEnv(env.VITE_WEBSITE_HANDLE, "tewostech.com"),
         url: cleanEnv(env.VITE_WEBSITE_URL, "https://tewostech.com/"),
