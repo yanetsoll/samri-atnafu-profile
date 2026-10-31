@@ -1,51 +1,50 @@
 import React, { useState } from 'react';
-import { Check } from 'lucide-react';
 import { LinkedInBrandIcon, WhatsAppBrandIcon, WebsiteBrandIcon } from './Icons';
 
-export const SocialCard = ({ link, onCopy }) => {
+export const SocialCard = ({ link }) => {
   const [copied, setCopied] = useState(false);
 
-  const getPlatformIcon = () => {
+  const getIcon = () => {
     switch (link.type) {
-      case 'linkedin':
-        return <LinkedInBrandIcon className="w-10 h-10 sm:w-11 sm:h-11" />;
-      case 'whatsapp':
-        return <WhatsAppBrandIcon className="w-10 h-10 sm:w-11 sm:h-11" />;
+      case 'linkedin':  return <LinkedInBrandIcon className="w-10 h-10 sm:w-12 sm:h-12" />;
+      case 'whatsapp':  return <WhatsAppBrandIcon className="w-10 h-10 sm:w-12 sm:h-12" />;
       case 'website':
-      default:
-        return <WebsiteBrandIcon className="w-10 h-10 sm:w-11 sm:h-11" />;
+      default:          return <WebsiteBrandIcon  className="w-10 h-10 sm:w-12 sm:h-12" />;
     }
   };
 
   const handleCopy = (e) => {
-    e.stopPropagation();
     e.preventDefault();
+    e.stopPropagation();
     navigator.clipboard.writeText(link.url);
     setCopied(true);
-    if (onCopy) onCopy(link.handle || link.title);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    /* Entire row is a link */
     <a
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`Open ${link.handle}`}
-      className="flex items-center justify-between py-3.5 sm:py-4 group cursor-pointer no-underline"
+      className="group no-underline"
     >
-      {/* Icon + Handle */}
-      <div className="flex items-center gap-3.5 sm:gap-4 min-w-0 flex-1">
-        <div className="flex-shrink-0 transition-transform duration-200 group-hover:scale-105">
-          {getPlatformIcon()}
-        </div>
-        <span className="font-semibold text-slate-800 group-hover:text-slate-950 text-sm sm:text-base tracking-tight truncate">
-          {link.handle}
-        </span>
+      {/* ── MOBILE: horizontal row ── */}
+      <div className="flex sm:hidden items-center gap-4 py-3.5 border-b border-slate-100 last:border-0">
+        <div className="flex-shrink-0">{getIcon()}</div>
+        <span className="font-semibold text-slate-800 text-sm truncate">{link.handle}</span>
       </div>
 
-
+      {/* ── DESKTOP: vertical card ── */}
+      <div className="hidden sm:flex flex-col gap-3 border border-slate-200 rounded-2xl p-4 h-full hover:shadow-md transition-shadow bg-white">
+        <div className="flex-shrink-0">{getIcon()}</div>
+        <span className="font-semibold text-slate-800 text-sm leading-snug">{link.handle}</span>
+        <button
+          onClick={handleCopy}
+          className="text-slate-400 hover:text-slate-600 text-sm font-medium text-left mt-auto transition-colors"
+        >
+          {copied ? '✓ Copied!' : 'Copy'}
+        </button>
+      </div>
     </a>
   );
 };
