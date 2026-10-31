@@ -1,51 +1,37 @@
-import React, { useState } from 'react';
-import { Check } from 'lucide-react';
+import React from 'react';
 import { LinkedInBrandIcon, WhatsAppBrandIcon, WebsiteBrandIcon } from './Icons';
 
-export const SocialCard = ({ link, onCopy }) => {
-  const [copied, setCopied] = useState(false);
-
+export const SocialCard = ({ link }) => {
   const getPlatformIcon = () => {
     switch (link.type) {
-      case 'linkedin':
-        return <LinkedInBrandIcon className="w-10 h-10 sm:w-11 sm:h-11" />;
-      case 'whatsapp':
-        return <WhatsAppBrandIcon className="w-10 h-10 sm:w-11 sm:h-11" />;
+      case 'linkedin':  return <LinkedInBrandIcon className="w-10 h-10 md:w-12 md:h-12" />;
+      case 'whatsapp':  return <WhatsAppBrandIcon  className="w-10 h-10 md:w-12 md:h-12" />;
       case 'website':
-      default:
-        return <WebsiteBrandIcon className="w-10 h-10 sm:w-11 sm:h-11" />;
+      default:          return <WebsiteBrandIcon   className="w-10 h-10 md:w-12 md:h-12" />;
     }
   };
 
-  const handleCopy = (e) => {
-    e.stopPropagation();
-    e.preventDefault();
-    navigator.clipboard.writeText(link.url);
-    setCopied(true);
-    if (onCopy) onCopy(link.handle || link.title);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
-    /* Entire row is a link */
     <a
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Open ${link.handle}`}
-      className="flex items-center justify-between py-3.5 sm:py-4 group cursor-pointer no-underline"
+      className="
+        flex items-center gap-4 py-4
+        md:flex-col md:items-start md:gap-3 md:p-5
+        md:rounded-2xl md:border md:border-slate-100
+        md:hover:border-slate-300 md:hover:shadow-md
+        md:bg-white md:transition-all md:duration-200
+        no-underline group cursor-pointer
+      "
     >
-      {/* Icon + Handle */}
-      <div className="flex items-center gap-3.5 sm:gap-4 min-w-0 flex-1">
-        <div className="flex-shrink-0 transition-transform duration-200 group-hover:scale-105">
-          {getPlatformIcon()}
-        </div>
-        <span className="font-semibold text-slate-800 group-hover:text-slate-950 text-sm sm:text-base tracking-tight truncate">
-          {link.handle}
-        </span>
+      <div className="flex-shrink-0 transition-transform duration-200 group-hover:scale-105">
+        {getPlatformIcon()}
       </div>
-
-
+      <span className="font-semibold text-slate-800 group-hover:text-slate-950 text-sm md:text-base tracking-tight truncate">
+        {link.handle}
+      </span>
     </a>
   );
 };
