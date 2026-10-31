@@ -11,8 +11,8 @@ export const getProfileData = () => {
   const env = import.meta.env;
 
   return {
-    name: cleanEnv(env.VITE_NAME, "Samrawit Atnafu"),
-    title: cleanEnv(env.VITE_TITLE, "Tewos Technology"),
+    name: cleanEnv(env.VITE_NAME, "Tewos Technologies"),
+    title: cleanEnv(env.VITE_TITLE, ""),
     bio: cleanEnv(env.VITE_BIO, ""),
     avatar: cleanEnv(env.VITE_AVATAR, "/logo.png"),
     location: cleanEnv(env.VITE_LOCATION, ""),

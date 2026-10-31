@@ -114,10 +114,12 @@ export default function App() {
             </span>
           </div>
 
-          <p className="text-xs sm:text-sm font-semibold text-indigo-600 tracking-wide flex items-center justify-center gap-1 mt-1 px-4 leading-normal">
-            <Sparkles className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
-            <span>{profile.title}</span>
-          </p>
+          {profile.title && (
+            <p className="text-xs sm:text-sm font-semibold text-indigo-600 tracking-wide flex items-center justify-center gap-1 mt-1 px-4 leading-normal">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
+              <span>{profile.title}</span>
+            </p>
+          )}
 
           {profile.bio && (
             <p className="max-w-md mx-auto text-xs text-slate-500 line-clamp-2 mt-1 px-4 leading-relaxed">
