@@ -19,6 +19,16 @@ export const getProfileData = () => {
     status: cleanEnv(env.VITE_STATUS, "Online & open to collaborate"),
     links: [
       {
+        id: "website",
+        type: "website",
+        title: "Personal Website",
+        subtitle: cleanEnv(env.VITE_WEBSITE_SUBTITLE, ""),
+        handle: cleanEnv(env.VITE_WEBSITE_HANDLE, "tewostech.com"),
+        url: cleanEnv(env.VITE_WEBSITE_URL, "https://tewostech.com/"),
+        tag: "Portfolio",
+        badge: "Explore"
+      },
+      {
         id: "linkedin",
         type: "linkedin",
         title: "LinkedIn",
@@ -29,16 +39,6 @@ export const getProfileData = () => {
         badge: "Connect"
       },
       {
-        id: "instagram",
-        type: "instagram",
-        title: "Instagram",
-        subtitle: cleanEnv(env.VITE_INSTAGRAM_SUBTITLE, ""),
-        handle: cleanEnv(env.VITE_INSTAGRAM_HANDLE, "@samri_atnafu_"),
-        url: cleanEnv(env.VITE_INSTAGRAM_URL, "https://www.instagram.com/samri_atnafu_?xtok=and2Yng3eml5OGhv"),
-        tag: "Social",
-        badge: "Follow"
-      },
-      {
         id: "whatsapp",
         type: "whatsapp",
         title: "WhatsApp",
@@ -47,16 +47,6 @@ export const getProfileData = () => {
         url: cleanEnv(env.VITE_WHATSAPP_URL, "https://wa.me/251911515291"),
         tag: "Instant Chat",
         badge: "Message"
-      },
-      {
-        id: "website",
-        type: "website",
-        title: "Personal Website",
-        subtitle: cleanEnv(env.VITE_WEBSITE_SUBTITLE, ""),
-        handle: cleanEnv(env.VITE_WEBSITE_HANDLE, "tewostech.com"),
-        url: cleanEnv(env.VITE_WEBSITE_URL, "https://tewostech.com/"),
-        tag: "Portfolio",
-        badge: "Explore"
       }
     ]
   };

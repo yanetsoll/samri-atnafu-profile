@@ -124,9 +124,9 @@ export default function App() {
           )}
         </div>
 
-        {/* The 4 Cards Grid - Perfectly spaced without any overlap */}
+        {/* Social Cards - Website -> LinkedIn -> WhatsApp */}
         <div className="my-auto py-2 sm:py-3 w-full">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full">
+          <div className="flex flex-col gap-3 sm:gap-3.5 max-w-xl mx-auto w-full">
             {profile.links.map((link) => (
               <SocialCard 
                 key={link.id} 
