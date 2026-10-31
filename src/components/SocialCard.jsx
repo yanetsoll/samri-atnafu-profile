@@ -27,24 +27,25 @@ export const SocialCard = ({ link, onCopy }) => {
   };
 
   return (
-    <div className="flex items-center justify-between py-3.5 sm:py-4 transition-colors group">
-      {/* Clickable link area (Icon + Handle text) */}
-      <a
-        href={link.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`Open ${link.handle}`}
-        className="flex items-center gap-3.5 sm:gap-4 min-w-0 flex-1 hover:opacity-85 transition-opacity no-underline"
-      >
+    /* Entire row is a link */
+    <a
+      href={link.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Open ${link.handle}`}
+      className="flex items-center justify-between py-3.5 sm:py-4 group cursor-pointer no-underline"
+    >
+      {/* Icon + Handle */}
+      <div className="flex items-center gap-3.5 sm:gap-4 min-w-0 flex-1">
         <div className="flex-shrink-0 transition-transform duration-200 group-hover:scale-105">
           {getPlatformIcon()}
         </div>
         <span className="font-semibold text-slate-800 group-hover:text-slate-950 text-sm sm:text-base tracking-tight truncate">
           {link.handle}
         </span>
-      </a>
+      </div>
 
-      {/* Copy Button */}
+      {/* Copy Button — stops propagation so it doesn't also navigate */}
       <button
         onClick={handleCopy}
         type="button"
@@ -60,6 +61,6 @@ export const SocialCard = ({ link, onCopy }) => {
           "Copy"
         )}
       </button>
-    </div>
+    </a>
   );
 };
