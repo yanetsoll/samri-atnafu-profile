@@ -21,8 +21,8 @@ export default function App() {
       {/* ── CONTENT AREA ── */}
       <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-16">
 
-        {/* Avatar overlapping banner */}
-        <div className="-mt-14 md:-mt-16 mb-4 inline-block relative z-10">
+        {/* Avatar — shown on mobile only, banner already has logo on desktop */}
+        <div className="-mt-14 md:-mt-16 mb-4 inline-block relative z-10 md:hidden">
           <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white shadow-lg bg-gradient-to-br from-orange-500 to-fuchsia-600 overflow-hidden">
             <img
               src={profile.avatar || "/logo.png"}
