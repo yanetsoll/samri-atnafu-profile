@@ -32,11 +32,11 @@ export default function App() {
 
         {/* 2. Overlapping Circular Avatar */}
         <div className="-mt-14 ml-5 relative z-10 inline-block">
-          <div className="w-24 h-24 rounded-full border-4 border-white shadow-lg bg-white overflow-hidden flex items-center justify-center">
+          <div className="w-24 h-24 rounded-full border-4 border-white shadow-lg bg-gradient-to-br from-orange-500 to-fuchsia-600 overflow-hidden flex items-center justify-center">
             <img
               src={profile.avatar || "/logo.png"}
               alt={profile.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover scale-110"
             />
           </div>
         </div>
