@@ -14,7 +14,7 @@ export const getProfileData = () => {
     name: cleanEnv(env.VITE_NAME, "Samrawit Atnafu"),
     title: cleanEnv(env.VITE_TITLE, "Chief Business Development Officer"),
     bio: cleanEnv(env.VITE_BIO, ""),
-    avatar: cleanEnv(env.VITE_AVATAR, "/avatar.png"),
+    avatar: cleanEnv(env.VITE_AVATAR, "/logo.png"),
     location: cleanEnv(env.VITE_LOCATION, ""),
     status: cleanEnv(env.VITE_STATUS, "Online & open to collaborate"),
     links: [

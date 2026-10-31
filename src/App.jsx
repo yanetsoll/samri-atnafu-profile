@@ -95,12 +95,14 @@ export default function App() {
         {/* Profile Card Header */}
         <div className="text-center my-3 sm:my-4 flex-shrink-0">
           <div className="relative inline-block mb-2.5 sm:mb-3">
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-indigo-500 via-rose-400 to-amber-400 blur-xs opacity-80 animate-spin-slow" />
-            <img
-              src={profile.avatar}
-              alt={profile.name}
-              className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover object-top border-3 sm:border-4 border-white shadow-lg mx-auto"
-            />
+            <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-orange-400 via-rose-500 to-indigo-500 blur-xs opacity-80 animate-spin-slow" />
+            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white p-2 border-3 sm:border-4 border-white shadow-lg mx-auto flex items-center justify-center overflow-hidden">
+              <img
+                src={profile.avatar}
+                alt={profile.name}
+                className="w-full h-full object-contain"
+              />
+            </div>
           </div>
 
           <div className="flex items-center justify-center gap-1.5">
