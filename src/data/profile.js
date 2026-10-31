@@ -1,6 +1,6 @@
 export const profileData = {
   name: "Samriye",
-  title: "Creative Developer & Digital Creator",
+  title: "Tewos Technology",
   bio: "Welcome to my digital corner! Explore my work, connect professionally, or drop me a direct message.",
   avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
   location: "Worldwide",

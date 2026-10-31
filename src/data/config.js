@@ -12,7 +12,7 @@ export const getProfileData = () => {
 
   return {
     name: cleanEnv(env.VITE_NAME, "Samrawit Atnafu"),
-    title: cleanEnv(env.VITE_TITLE, "Chief Business Development Officer"),
+    title: cleanEnv(env.VITE_TITLE, "Tewos Technology"),
     bio: cleanEnv(env.VITE_BIO, ""),
     avatar: cleanEnv(env.VITE_AVATAR, "/logo.png"),
     location: cleanEnv(env.VITE_LOCATION, ""),
