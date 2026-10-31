@@ -1,155 +1,74 @@
 import React, { useState } from 'react';
 import { getProfileData } from './data/config';
 import { SocialCard } from './components/SocialCard';
-import { QRModal } from './components/QRModal';
 import { VerifiedBadgeIcon } from './components/Icons';
-import { 
-  Share2, 
-  QrCode, 
-  CheckCircle2, 
-  Sparkles
-} from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 export default function App() {
   const profile = getProfileData();
   const [toastMessage, setToastMessage] = useState(null);
-  const [isQrOpen, setIsQrOpen] = useState(false);
 
-  const showToast = (platformName) => {
-    setToastMessage(`${platformName} link copied to clipboard!`);
+  const showToast = (label) => {
+    setToastMessage(`${label} copied!`);
     setTimeout(() => {
       setToastMessage(null);
-    }, 2500);
-  };
-
-  const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: `${profile.name} - Connect & Social Channels`,
-          text: `Check out ${profile.name}'s social links!`,
-          url: window.location.href,
-        });
-      } catch (err) {
-        // user dismissed or share unsupported
-      }
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      setToastMessage("Page URL copied to clipboard!");
-      setTimeout(() => setToastMessage(null), 2500);
-    }
+    }, 2200);
   };
 
   return (
-    <div className="min-h-[100dvh] sm:h-[100dvh] bg-gradient-to-b from-[#F8FAFC] via-[#F1F5F9] to-[#E2E8F0] text-slate-900 flex flex-col justify-between overflow-x-hidden relative font-sans selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-[100dvh] bg-[#F1F5F9] text-slate-900 flex flex-col justify-center items-center p-0 sm:p-6 font-sans selection:bg-rose-500 selection:text-white">
       
-      {/* Radiant Ambient Light Blooms */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="absolute -top-24 -left-24 w-80 h-80 bg-indigo-200/40 rounded-full blur-[90px]" />
-        <div className="absolute top-1/4 -right-20 w-80 h-80 bg-rose-200/40 rounded-full blur-[100px]" />
-        <div className="absolute -bottom-24 left-1/3 w-96 h-96 bg-emerald-100/50 rounded-full blur-[110px]" />
-        {/* Subtle geometric dot matrix */}
-        <div 
-          className="absolute inset-0 opacity-[0.035]" 
-          style={{ 
-            backgroundImage: `radial-gradient(circle at 1px 1px, #0f172a 1px, transparent 0)`,
-            backgroundSize: '24px 24px'
-          }} 
-        />
-      </div>
-
-      {/* Main Container */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-6 flex-1 flex flex-col justify-between">
+      {/* Central Profile Card */}
+      <main className="w-full max-w-[440px] bg-white sm:rounded-3xl shadow-[0_15px_40px_rgba(0,0,0,0.08)] sm:border border-slate-100/90 overflow-hidden flex flex-col transition-all">
         
-        {/* Top Minimal Action Row */}
-        <header className="flex items-center justify-between pb-2 flex-shrink-0">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 border border-slate-200/80 text-[11px] font-medium text-slate-600 shadow-xs backdrop-blur-md">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span className="text-slate-800 font-semibold">{profile.status}</span>
+        {/* 1. Header Banner */}
+        <div className="relative w-full h-36 sm:h-40 bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-600 overflow-hidden">
+          <img
+            src={profile.banner || "/banner.png"}
+            alt="Driving Innovation for Global Impact"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+
+        {/* 2. Overlapping Circular Avatar */}
+        <div className="-mt-12 sm:-mt-14 ml-6 sm:ml-7 relative z-10 inline-block">
+          <div className="w-22 h-22 sm:w-24 sm:h-24 rounded-full border-4 border-white shadow-md bg-white overflow-hidden flex items-center justify-center">
+            <img
+              src={profile.avatar || "/avatar-circle.png"}
+              alt={profile.name}
+              className="w-full h-full object-cover"
+            />
           </div>
+        </div>
 
-          <div className="flex items-center gap-2">
-            {/* <button
-              onClick={() => setIsQrOpen(true)}
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/85 hover:bg-white text-slate-700 hover:text-slate-900 border border-slate-200/90 shadow-xs backdrop-blur-md transition-all hover:scale-105"
-              title="Show QR Code"
-            >
-              <QrCode className="w-3.5 h-3.5 text-indigo-600" />
-              <span>QR Code</span>
-            </button> */}
-
-            <button
-              onClick={handleShare}
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs backdrop-blur-md transition-all hover:scale-105"
-              title="Share profile"
-            >
-              <Share2 className="w-3.5 h-3.5" />
-              <span>Share</span>
-            </button>
-          </div>
-        </header>
-
-        {/* Profile Card Header */}
-        <div className="text-center my-3 sm:my-4 flex-shrink-0">
-          <div className="relative inline-block mb-2.5 sm:mb-3">
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-orange-400 via-rose-500 to-indigo-500 blur-xs opacity-80 animate-spin-slow" />
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white p-2 border-3 sm:border-4 border-white shadow-lg mx-auto flex items-center justify-center overflow-hidden">
-              <img
-                src={profile.avatar}
-                alt={profile.name}
-                className="w-full h-full object-contain"
-              />
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center gap-1.5">
-            <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 font-display">
+        {/* 3. Name & Subtitle (Left Aligned) */}
+        <div className="px-6 sm:px-7 mt-3 text-left">
+          <div className="flex items-center gap-1.5">
+            <h1 className="text-2xl sm:text-[26px] font-bold text-slate-950 tracking-tight font-display">
               {profile.name}
             </h1>
-            <span title="Verified Account" className="inline-flex items-center select-none flex-shrink-0">
-              <VerifiedBadgeIcon className="w-5 h-5 sm:w-5.5 sm:h-5.5 transition-transform duration-200 hover:scale-110 drop-shadow-xs" />
-            </span>
+            <VerifiedBadgeIcon className="w-5 h-5 text-[#1D9BF0] flex-shrink-0" />
           </div>
 
           {profile.title && (
-            <p className="text-xs sm:text-sm font-semibold text-indigo-600 tracking-wide flex items-center justify-center gap-1 mt-1 px-4 leading-normal">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
-              <span>{profile.title}</span>
-            </p>
-          )}
-
-          {profile.bio && (
-            <p className="max-w-md mx-auto text-xs text-slate-500 line-clamp-2 mt-1 px-4 leading-relaxed">
-              {profile.bio}
+            <p className="text-sm sm:text-[15px] font-medium text-slate-600 mt-1 tracking-normal">
+              {profile.title}
             </p>
           )}
         </div>
 
-        {/* Social Cards - Website -> LinkedIn -> WhatsApp */}
-        <div className="my-auto py-2 sm:py-3 w-full">
-          <div className="flex flex-col gap-3 sm:gap-3.5 max-w-xl mx-auto w-full">
-            {profile.links.map((link) => (
-              <SocialCard 
-                key={link.id} 
-                link={link} 
-                onCopy={showToast} 
-              />
-            ))}
-          </div>
+        {/* 4. Links List with Clean Dividers */}
+        <div className="px-6 sm:px-7 mt-5 pb-6 divide-y divide-slate-100 flex flex-col">
+          {profile.links.map((link) => (
+            <SocialCard 
+              key={link.id} 
+              link={link} 
+              onCopy={showToast} 
+            />
+          ))}
         </div>
 
-        {/* Compact Footer */}
-        <footer className="pt-3 pb-1 border-t border-slate-200/70 flex-shrink-0 text-center text-[11px] text-slate-500 mt-auto">
-          <div className="flex items-center justify-between">
-            <p>© {new Date().getFullYear()} {profile.name}</p>
-            <p className="text-slate-400 font-medium">Click any card to open profile</p>
-          </div>
-        </footer>
-
-      </div>
+      </main>
 
       {/* Floating Toast Notification */}
       {toastMessage && (
@@ -161,12 +80,6 @@ export default function App() {
         </div>
       )}
 
-      {/* QR Code Modal */}
-      <QRModal 
-        isOpen={isQrOpen} 
-        onClose={() => setIsQrOpen(false)} 
-        profileName={profile.name} 
-      />
     </div>
   );
 }

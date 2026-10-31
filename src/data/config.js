@@ -11,10 +11,11 @@ export const getProfileData = () => {
   const env = import.meta.env;
 
   return {
-    name: cleanEnv(env.VITE_NAME, "Tewos Technologies"),
-    title: cleanEnv(env.VITE_TITLE, ""),
+    name: cleanEnv(env.VITE_NAME, "Tewos Technology"),
+    title: cleanEnv(env.VITE_TITLE, "Driving Digital Innovation"),
     bio: cleanEnv(env.VITE_BIO, ""),
-    avatar: cleanEnv(env.VITE_AVATAR, "/logo.png"),
+    banner: cleanEnv(env.VITE_BANNER, "/banner.png"),
+    avatar: cleanEnv(env.VITE_AVATAR, "/avatar-circle.png"),
     location: cleanEnv(env.VITE_LOCATION, ""),
     status: cleanEnv(env.VITE_STATUS, "Online & open to collaborate"),
     links: [
@@ -33,15 +34,15 @@ export const getProfileData = () => {
         type: "linkedin",
         title: cleanEnv(env.VITE_LINKEDIN_TITLE, "Tewos LinkedIn"),
         subtitle: cleanEnv(env.VITE_LINKEDIN_SUBTITLE, "Professional Network & Experience"),
-        handle: cleanEnv(env.VITE_LINKEDIN_HANDLE, "@samri-atnafu"),
-        url: cleanEnv(env.VITE_LINKEDIN_URL, "https://www.linkedin.com/in/samri-atnafu"),
+        handle: cleanEnv(env.VITE_LINKEDIN_HANDLE, "@tewos-technology"),
+        url: cleanEnv(env.VITE_LINKEDIN_URL, "https://www.linkedin.com/company/tewos-technology"),
         tag: "Career",
         badge: "Connect"
       },
       {
         id: "whatsapp",
         type: "whatsapp",
-        title: "WhatsApp",
+        title: cleanEnv(env.VITE_WHATSAPP_TITLE, "WhatsApp"),
         subtitle: cleanEnv(env.VITE_WHATSAPP_SUBTITLE, ""),
         handle: cleanEnv(env.VITE_WHATSAPP_HANDLE, "+251 911 515 291"),
         url: cleanEnv(env.VITE_WHATSAPP_URL, "https://wa.me/251911515291"),
