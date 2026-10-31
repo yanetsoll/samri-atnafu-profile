@@ -27,10 +27,10 @@ export default function App() {
     <div className="min-h-[100dvh] bg-white text-slate-900 flex flex-col items-center font-sans selection:bg-rose-500 selection:text-white">
 
       {/* Profile Card */}
-      <main className="w-full max-w-[600px] bg-white flex flex-col min-h-[100dvh] border-x border-slate-100">
+      <main className="w-full bg-white flex flex-col min-h-[100dvh]">
 
         {/* 1. Banner */}
-        <div className="relative w-full h-36 sm:h-48 bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-600 overflow-hidden flex-shrink-0">
+        <div className="relative w-full h-36 sm:h-56 bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-600 overflow-hidden flex-shrink-0">
           <img
             src={profile.banner || "/banner.png"}
             alt="Driving Innovation for Global Impact"
@@ -39,8 +39,8 @@ export default function App() {
         </div>
 
         {/* 2. Overlapping Avatar */}
-        <div className="-mt-12 sm:-mt-14 ml-5 sm:ml-7 relative z-10 inline-block flex-shrink-0">
-          <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-white shadow-lg bg-gradient-to-br from-orange-500 to-fuchsia-600 overflow-hidden">
+        <div className="-mt-12 sm:-mt-16 ml-5 sm:ml-10 relative z-10 inline-block flex-shrink-0">
+          <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full border-4 border-white shadow-lg bg-gradient-to-br from-orange-500 to-fuchsia-600 overflow-hidden">
             <img
               src={profile.avatar || "/logo.png"}
               alt={profile.name}
@@ -50,30 +50,30 @@ export default function App() {
         </div>
 
         {/* 3. Name & Subtitle */}
-        <div className="px-6 sm:px-8 mt-3 text-left">
+        <div className="px-6 sm:px-10 mt-3 sm:mt-4 text-left">
           <div className="flex items-center gap-1.5">
-            <h1 className="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight">
+            <h1 className="text-2xl sm:text-4xl font-bold text-slate-950 tracking-tight">
               {profile.name}
             </h1>
-            <VerifiedBadgeIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#1D9BF0] flex-shrink-0" />
+            <VerifiedBadgeIcon className="w-5 h-5 sm:w-7 sm:h-7 text-[#1D9BF0] flex-shrink-0" />
           </div>
           {profile.title && (
-            <p className="text-sm sm:text-base text-slate-500 mt-1">
+            <p className="text-sm sm:text-lg text-slate-500 mt-1">
               {profile.title}
             </p>
           )}
         </div>
 
         {/* 4. Links — mobile: vertical rows | desktop: 3-col grid */}
-        <div className="px-6 sm:px-8 mt-6 sm:mt-8 pb-6
-                        flex flex-col sm:grid sm:grid-cols-3 sm:gap-4">
+        <div className="px-6 sm:px-10 mt-6 sm:mt-8 pb-6
+                        flex flex-col sm:grid sm:grid-cols-3 sm:gap-5">
           {profile.links.map((link) => (
             <SocialCard key={link.id} link={link} />
           ))}
         </div>
 
         {/* 5. Footer (desktop only) */}
-        <footer className="hidden sm:flex items-center justify-between px-8 py-5 mt-auto border-t border-slate-100">
+        <footer className="hidden sm:flex items-center justify-between px-10 py-5 mt-auto border-t border-slate-100">
           <span className="text-xs text-slate-400">© 2026 Tewos Technology</span>
           <button
             onClick={handleShare}
