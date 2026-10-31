@@ -31,7 +31,7 @@ export const getProfileData = () => {
       {
         id: "linkedin",
         type: "linkedin",
-        title: "LinkedIn",
+        title: cleanEnv(env.VITE_LINKEDIN_TITLE, "Tewos LinkedIn"),
         subtitle: cleanEnv(env.VITE_LINKEDIN_SUBTITLE, "Professional Network & Experience"),
         handle: cleanEnv(env.VITE_LINKEDIN_HANDLE, "@samri-atnafu"),
         url: cleanEnv(env.VITE_LINKEDIN_URL, "https://www.linkedin.com/in/samri-atnafu"),

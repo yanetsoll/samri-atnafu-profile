@@ -8,7 +8,7 @@ export const profileData = {
   links: [
     {
       id: "linkedin",
-      title: "LinkedIn",
+      title: "Tewos LinkedIn",
       subtitle: "Professional Network & Experience",
       handle: "@samriye",
       url: "https://www.linkedin.com/in/samriye",
