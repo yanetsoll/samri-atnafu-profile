@@ -30,6 +30,17 @@ export default function App() {
           />
         </div>
 
+        {/* 2. Overlapping Circular Avatar */}
+        <div className="-mt-14 ml-5 relative z-10 inline-block">
+          <div className="w-24 h-24 rounded-full border-4 border-white shadow-lg bg-white overflow-hidden flex items-center justify-center">
+            <img
+              src={profile.avatar || "/logo.png"}
+              alt={profile.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
         {/* 3. Name & Subtitle (Left Aligned) */}
         <div className="px-6 sm:px-7 mt-3 text-left">
           <div className="flex items-center gap-1.5">
